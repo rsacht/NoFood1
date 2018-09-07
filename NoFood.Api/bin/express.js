@@ -24,3 +24,5 @@ app.use('/api/produto', produtoRouter);
 app.use('/api/usuario', usuarioRouter);
 
 module.exports = app;
+
+//Api -> MIDDLEWARES -> Rodas -> Controller -> Repository -> Banco
