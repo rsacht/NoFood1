@@ -17,9 +17,9 @@ usuarioController.prototype.post = async (req, res) =>{
     _validationContract.isRequired(req.body.nome, 'Informe seu nome');
     _validationContract.isRequired(req.body.email, 'Informe seu e-mail');
     _validationContract.isEmail(req.body.email, 'O e-mail informado é inválido');
-    _validationContract.isRequired(req.body.senha, 'A senha informada é inválida');
+    _validationContract.isRequired(req.body.senha, 'A senha informada é obrigatória');
     _validationContract.isRequired(req.body.senhaConfirmacao, 'A senha de confirmação é obrigatória');
-    _validationContract.isTrue(req.body.senha !== req.body.semjaConfirmacao, 'A senha e a confirmação são diferentes');
+    _validationContract.isTrue(req.body.senha != req.body.senhaConfirmacao, 'A Senha e a Confirmação não são iguais');
 
     let usuarioIsEmailExiste = await _repo.IsEmailExiste(req.body.email);
     if(usuarioIsEmailExiste){
@@ -38,7 +38,7 @@ usuarioController.prototype.put = async (req, res) =>{
     _validationContract.isRequired(req.body.nome, 'Informe seu nome');
     _validationContract.isRequired(req.body.email, 'Informe seu e-mail');
     _validationContract.isEmail(req.body.email, 'O e-mail informado é inválido');
-    _validationContract.isEmail(req.params.id, 'Informe o ID do usuário que será editado');
+    _validationContract.isRequired(req.params.id, 'Informe o ID do usuário que será editado');
    
 
     let usuarioIsEmailExiste = await _repo.IsEmailExiste(req.body.email);

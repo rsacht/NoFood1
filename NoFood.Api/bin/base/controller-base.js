@@ -11,8 +11,8 @@ exports.post = async(repository, validationContract, req, res)=>{
         let resultado = await repository.create(data);
         res.status(201).send(resultado);
 
-    } catch (error) {
-        console.log('Post com error, motivo: ', error);
+    } catch (err) {
+        console.log('Post com error, motivo: ', err);
         res.status(500).send({message: 'Erro no processamento', error: err})
     }
 };
@@ -50,7 +50,7 @@ exports.getById = async(repository, req, res)=>{
     try {
         let id = req.params.id;
         if(id){
-            let data = await repository.geById(id);
+            let data = await repository.getById(id);
             res.status(200).send(data);  
         }else{
             res.status(400).send({message: 'O parametro ID precisa ser informado.'});

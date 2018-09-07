@@ -20,7 +20,7 @@ class usuarioRepository {
 
     async create(data) {
         let usuarioCriado = await this._base.create(data);
-        return this._base._model.findById(usuarioCriado._id, this._projection );
+        return this._base._model.findById(usuarioCriado._id, this._projection);
     }
 
     async update(id, data) {
@@ -30,15 +30,15 @@ class usuarioRepository {
                 email: data.email,
                 foto: data.foto
             });
-            return this._base._model.findById(usuarioAtualizado._id, this._projection );
+            return this._base._model.findById(usuarioAtualizado._id, this._projection);
     }
 
     async getAll() {
-        return this._base._model.find({}, 'nome email _id foto' );
+        return this._base._model.find({}, this._projection);
     }
 
     async getById(id) {
-        return this._base._model.findById(id, this._projection );
+        return this._base._model.findById(id, 'nome email _id foto');
     }
 
     async delete(id) {
