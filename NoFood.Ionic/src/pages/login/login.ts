@@ -25,5 +25,5 @@ export class LoginPage {
   abrirCategoria():void{
     this.navCtrl.setRoot('CategoriaPage');
   }
-
+ 
 }
