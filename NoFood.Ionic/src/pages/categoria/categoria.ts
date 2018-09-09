@@ -22,4 +22,7 @@ export class CategoriaPage {
     console.log('ionViewDidLoad CategoriaPage');
   }
 
+  abrirProduto():void{
+    this.navCtrl.setRoot('TabsPage');
+  }
 }
