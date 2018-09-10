@@ -10,7 +10,10 @@ export class TabsPage {
 
   @ViewChild('mainTabs') mainTabs: Tabs;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private app: App) {
+  constructor(
+    public navCtrl: NavController, 
+    public navParams: NavParams, 
+    private app: App) {
   }
 
   ionViewDidLoad() {
@@ -21,4 +24,14 @@ export class TabsPage {
       this.app.getRootNav().setRoot('Categorias');
   }
 
+  selecionarCategoria(event):void{
+
+    let navegacaoAnterior = event.linker._history[event.linker._history.length -2];
+    console.log('ultimo', navegacaoAnterior);
+    console.log('tab', event);
+    console.log(event.tabTitle);
+
+    if (event.tabTitle == 'Categorias')
+    this.app.getRootNav().setRoot('CategoriaPage');
+  }
 }
