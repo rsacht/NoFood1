@@ -21,9 +21,9 @@ export class LoginPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad LoginPage');
   }
-
-  abrirCategoria():void{
+  
+  abrirCategoria():void {
     this.navCtrl.setRoot('CategoriaPage');
   }
- 
+
 }
